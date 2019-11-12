@@ -31,6 +31,7 @@ DEPENDS_append_sunxi += "venus-install-sdcard"
 
 # "live" initial image
 DEPENDS_append_raspberrypi2 += "venus-image"
+DEPENDS_append_raspberrypi4 += "venus-image"
 
 python () {
     deps = d.getVar('DEPENDS').split()

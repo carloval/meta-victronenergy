@@ -3,6 +3,7 @@ LICENSE = "MIT"
 
 BOOT_IMAGE_SIZE = "8192"
 BOOT_IMAGE_SIZE_raspberrypi2 = "40960"
+BOOT_IMAGE_SIZE_raspberrypi4 = "40960"
 
 do_rootfs[depends] += "\
     dosfstools-native:do_populate_sysroot \
