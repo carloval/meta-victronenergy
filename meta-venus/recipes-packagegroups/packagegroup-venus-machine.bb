@@ -86,3 +86,7 @@ RDEPENDS_${PN}_append_raspberrypi2 += "\
 RDEPENDS_${PN}_remove_raspberrypi4 += "\
     rtl8192eu \
 "
+
+RDEPENDS_${PN}_append_raspberrypi4 += "\
+    resize-sdcard \
+"
