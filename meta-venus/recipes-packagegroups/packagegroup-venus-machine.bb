@@ -75,18 +75,19 @@ RDEPENDS_${PN}_append_sunxi += "\
     swupdate-scripts \
 "
 
-RDEPENDS_${PN}_append_raspberrypi2 += "\
+RDEPENDS_${PN}_append_rpi += "\
+    bluez-firmware-rpidistro-bcm43430a1-hcd \
+    bluez-firmware-rpidistro-bcm4345c0-hcd \
     gpio-export \
-    linux-firmware-bcm43430 \
-    linux-firmware-bcm43455 \
+    linux-firmware-rpidistro-bcm43430 \
+    linux-firmware-rpidistro-bcm43455 \
+    resize-sdcard \
     swupdate \
     swupdate-scripts \
+    wireless-regdb-static \
 "
 
 RDEPENDS_${PN}_remove_raspberrypi4 += "\
     rtl8192eu \
 "
 
-RDEPENDS_${PN}_append_raspberrypi4 += "\
-    resize-sdcard \
-"
