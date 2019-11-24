@@ -39,7 +39,6 @@ RDEPENDS_${PN} += "\
     can-utils \
     connman \
     connman-tools \
-    crda \
     cronie \
     curl \
     custom-rc.d \
