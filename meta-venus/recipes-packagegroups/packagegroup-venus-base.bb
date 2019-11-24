@@ -55,8 +55,6 @@ RDEPENDS_${PN} += "\
     javascript-vnc-client \
     ldd \
     less \
-    linux-firmware-rt2800 \
-    linux-firmware-rt73 \
     linux-firmware-rtl8192cu \
     llmnrd \
     localedef \
