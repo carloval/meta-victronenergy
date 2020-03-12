@@ -1,40 +1,44 @@
+ENV{BASE_COMPATIBLE}=="victronenergy,easysolar", GOTO="easysolar"
+ENV{BASE_COMPATIBLE}=="victronenergy,easysolar-*", GOTO="easysolar-a9"
+ENV{BASE_COMPATIBLE}=="victronenergy,maxi-gx", GOTO="maxi-gx"
+ENV{BASE_COMPATIBLE}=="victronenergy,maxi-gx-*", GOTO="maxi-gx-a9"
+ENV{BASE_COMPATIBLE}=="victronenergy,paygo", GOTO="paygo"
+ENV{BASE_COMPATIBLE}=="moixa,v4-smart-hub", GOTO="v4-smart-hub"
+GOTO="end-machine"
+
 # EasySolar devices
-ENV{BASE_COMPATIBLE}!="victronenergy,easysolar", GOTO="end-easysolar"
+LABEL="easysolar"
 ACTION=="add", KERNEL=="ttyS[12]", ENV{VE_PRODUCT}="builtin-vedirect", ENV{VE_SERVICE}="vedirect"
 ACTION=="add", KERNEL=="ttyS3", ENV{VE_PRODUCT}="builtin-mkx", ENV{VE_SERVICE}="mkx"
 ACTION=="add", SUBSYSTEM=="tty", ENV{ID_MODEL}=="VE_SLCAN_Interface", SYMLINK+="ttycan0"
-LABEL="end-easysolar"
+GOTO="end-machine"
 
 # EasySolar A9 devices
-ENV{BASE_COMPATIBLE}!="victronenergy,easysolar-a9", GOTO="end-easysolar-a9"
+LABEL="easysolar-a9"
 ACTION=="add", KERNEL=="ttyS[12]", ENV{VE_PRODUCT}="builtin-vedirect", ENV{VE_SERVICE}="vedirect"
 ACTION=="add", KERNEL=="ttyS3", ENV{VE_PRODUCT}="builtin-mkx", ENV{VE_SERVICE}="mkx"
-LABEL="end-easysolar-a9"
-
-# EasySolar A10 devices
-ENV{BASE_COMPATIBLE}!="victronenergy,easysolar-a10", GOTO="end-easysolar-a10"
-ACTION=="add", KERNEL=="ttyS[12]", ENV{VE_PRODUCT}="builtin-vedirect", ENV{VE_SERVICE}="vedirect"
-ACTION=="add", KERNEL=="ttyS3", ENV{VE_PRODUCT}="builtin-mkx", ENV{VE_SERVICE}="mkx"
-LABEL="end-easysolar-a10"
+GOTO="end-machine"
 
 # Maxi GX devices
-ENV{BASE_COMPATIBLE}!="victronenergy,maxi-gx", GOTO="end-maxi-gx"
+LABEL="maxi-gx"
 ACTION=="add", KERNEL=="ttyS2", ENV{VE_PRODUCT}="builtin-vedirect", ENV{VE_SERVICE}="vedirect"
 ACTION=="add", SUBSYSTEM=="tty", ENV{ID_MODEL}=="VE_SLCAN_Interface", SYMLINK+="ttycan0"
-LABEL="end-maxi-gx"
+GOTO="end-machine"
 
 # Maxi GX A9 devices
-ENV{BASE_COMPATIBLE}!="victronenergy,maxi-gx-a9", GOTO="end-maxi-gx-a9"
+LABEL="maxi-gx-a9"
 ACTION=="add", KERNEL=="ttyS2", ENV{VE_PRODUCT}="builtin-vedirect", ENV{VE_SERVICE}="vedirect"
-LABEL="end-maxi-gx-a9"
+GOTO="end-machine"
 
 # PayGo devices
-ENV{BASE_COMPATIBLE}!="victronenergy,paygo", GOTO="end-paygo"
+LABEL="paygo"
 ACTION=="add", KERNEL=="ttyS[12]", ENV{VE_PRODUCT}="builtin-vedirect", ENV{VE_SERVICE}="vedirect"
-LABEL="end-paygo"
+GOTO="end-machine"
 
 # Moixa V4 Smart Hub devices
-ENV{BASE_COMPATIBLE}!="moixa,v4-smart-hub", GOTO="end-v4-smart-hub"
+LABEL="v4-smart-hub"
 ACTION=="add", KERNEL=="ttyS1", ENV{VE_PRODUCT}="builtin-vedirect", ENV{VE_SERVICE}="vedirect"
 ACTION=="add", KERNEL=="ttyS3", ENV{VE_PRODUCT}="builtin-mkx", ENV{VE_SERVICE}="mkx"
-LABEL="end-v4-smart-hub"
+GOTO="end-machine"
+
+LABEL="end-machine"
